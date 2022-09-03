@@ -23,24 +23,20 @@ func createFile() (*csv.Writer, *os.File) {
 func writeToFile(writer *csv.Writer) {
 	c := colly.NewCollector()
 	c.OnHTML("table#customers", func(e *colly.HTMLElement) {
-		e.ForEachWithBreak("tr", func(_ int, el *colly.HTMLElement) bool {
-			writer.Write([]string{
-				el.ChildText("th:nth-child(1)"),
-				el.ChildText("th:nth-child(2)"),
-				el.ChildText("th:nth-child(3)"),
-			})
-			return false
-		})
 		e.ForEach("tr", func(_ int, el *colly.HTMLElement) {
-			var firstChildText = el.ChildText("td:nth-child(1)")
-			var secondChildText = el.ChildText("td:nth-child(2)")
-			var thirdChildText = el.ChildText("td:nth-child(3)")
-			if firstChildText != "" && secondChildText != "" && thirdChildText != "" {
-				writer.Write([]string{
-					firstChildText,
-					secondChildText,
-					thirdChildText,
-				})
+			var row []string
+			el.ForEach("th", func(_ int, el *colly.HTMLElement) {
+				row = append(row, el.Text)
+			})
+			if len(row) > 0 {
+				writer.Write(row)
+				row = []string{}
+			}
+			el.ForEach("td", func(_ int, el *colly.HTMLElement) {
+				row = append(row, el.Text)
+			})
+			if len(row) > 0 {
+				writer.Write(row)
 			}
 		})
 	})
