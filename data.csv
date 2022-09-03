@@ -1,7 +1,12 @@
-Company,Contact,Country
-Alfreds Futterkiste,Maria Anders,Germany
-Centro comercial Moctezuma,Francisco Chang,Mexico
-Ernst Handel,Roland Mendel,Austria
-Island Trading,Helen Bennett,UK
-Laughing Bacchus Winecellars,Yoshi Tannamuri,Canada
-Magazzini Alimentari Riuniti,Giovanni Rovelli,Italy
+Attribute,Description,HTML Compatibility
+abbr,Short description for contents of cell,Obsolete in HTML5
+align,"Horizontal alignment of text. It can be one of the following values: left, center, right, justify, char","Deprecated in HTML 4.01, Obsolete in HTML5, use CSS"
+axis,"List of strings, separated by spaces. Use scope attribute instead.",Obsolete in HTML5
+bgcolor,Background color of cell,"Non-standard, use CSS"
+char,Set the character to align the cells in a column,"Deprecated in HTML 4.01, Obsolete in HTML5"
+charoff,Number of characters to offset column data from the alignment characters (in char attribute),"Deprecated in HTML 4.01, Obsolete in HTML5"
+colspan,"Number of columns the cell extends (Default is 1, max value is 1000)","HTML 4.01, HTML5"
+headers,List of strings (separated by spaces) corresponding to the id attribute of the <th> element that it applies to,"HTML 4.01, HTML5"
+rowspan,"Number of rows that the cell extends (Default is 1, max value is 65534)","HTML 4.01, HTML5"
+scope,"List of strings, separated by spaces",Obsolete in HTML5
+valign,"Vertical alignment of text. It can be one of the following values: baseline, bottom, middle, top","Deprecated in HTML 4.01, Obsolete in HTML5, use CSS"

@@ -22,7 +22,7 @@ func createFile() (*csv.Writer, *os.File) {
 
 func writeToFile(writer *csv.Writer) {
 	c := colly.NewCollector()
-	c.OnHTML("table#customers", func(e *colly.HTMLElement) {
+	c.OnHTML("table.std_table", func(e *colly.HTMLElement) {
 		e.ForEach("tr", func(_ int, el *colly.HTMLElement) {
 			var row []string
 			el.ForEach("th", func(_ int, el *colly.HTMLElement) {
@@ -40,7 +40,7 @@ func writeToFile(writer *csv.Writer) {
 			}
 		})
 	})
-	c.Visit("https://www.w3schools.com/html/html_tables.asp")
+	c.Visit("https://www.techonthenet.com/html/elements/th_tag.php")
 }
 func main() {
 	writer, file := createFile()
