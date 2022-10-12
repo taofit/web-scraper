@@ -10,8 +10,8 @@ It will go to a web page and fetch each row in a table element and store the row
 2) Build image under root folder where dockerfile is, enter command: `docker build --platform amd64 --tag 0mq-golang-assignment .`, `0mq-golang-assignment` is the image name. On Mac M1 it requires to enter `--plateform amd64` to build a docker image, other computer may not need this flag.
 3) Run container from the image in interactive mode in the current terminal, enter command: `docker run -it 0mq-golang-assignment`. and now we are in docker container environment, you should see `/usr/src/app/emitter#` in the terminal, enter command: `cd /countd`, it is to project's countd folder, then enter command: `ls` to list all the files under root. enter command: `./0MQ-golang-countd`, it is to open the countd service, which is listening the message sending from another terminal that runs emitter service.
 4) Open a new terminal, enter command: `docker ps` and see something like:  
-CONTAINER ID   IMAGE     COMMAND           CREATED          STATUS    PORTS         NAMES  
-6a61bfd343a8   0mq-golang-assignment      "bash"           16 seconds ago   Up 16 seconds                                                     mystifying_payne.  
+`CONTAINER ID   IMAGE     COMMAND           CREATED          STATUS    PORTS         NAMES  
+6a61bfd343a8   0mq-golang-assignment      "bash"           16 seconds ago   Up 16 seconds                                                     mystifying_payne.  `
 We can see the running container id `6a61bfd343a8` from the above result.
 
 5) In this terminal, enter command `docker exec -it 6a61bfd343a8 bash`
